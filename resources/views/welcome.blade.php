@@ -4,30 +4,30 @@
 
 @section('content')
 
-    <h1>Algum Título</h1>
-    <img src="/img/banner.jpg" alt="banner"
-    @if (3> 5)
-    <p>A condição é true</p>
-    @endif
-    <p>{{ $nome }}</p>
+    <div id="search-container" class="col-md-12">
+        <h1>Busque um evento</h1>
+        <form action="">
+            <input type="text" name="search" id="search" class="form-control" placeholder="Procurar">
+        </form>
+    </div>
 
-    @if($nome == "Pedro")
-    <p>O nome é Pedro</p>
-    @elseif($nome == "Matheus")
-    <p>O nome é {{$nome}} e ele tem {{ $idade}} anos</p>
-    @else
-    <p>O nome não é Pedro</p>
-    @endif
+    <div id="events-container" class="col-md-12">
+        <h2>Próximos Eventos</h2>
+        <p class="subtitle">Veja os eventos dos próximos dias</p>
+        <div id="cards-container" class="row">
+            @foreach ($events as $event)
+                <div class="card col-md-3">
+                    <img src="img/event_placeholder.jpg" alt="{{ $event->title }}">
+                    <div class="card-body">
+                        <p class="card-date">11/10/2021</p>
+                        <h5 class="card-title">{{ $event->title }}</h5>
+                        <p class="card-participants">X Participantes</p>
+                        <a href="#" class="btn btn-primary">Saber mais</a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
 
-    @for($i = 0; $i <count($arr); $i++) <p>{{ $arr[$i]}} - {{$i}}</p>
-        @if ($i == 2)
-        <p>O i é 2</p>
-        @endif
-        @endfor
-
-    @php
-        $name = "João";
-        echo $name;
-    @endphp
 
 @endsection
