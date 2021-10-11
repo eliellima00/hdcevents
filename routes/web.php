@@ -17,7 +17,7 @@ Route::get('/', function () {
     $nome = "Matheus";
     $idade = 29;
 
-    $arr = [1, 2, 3, 4, 5];
+    $arr = [10, 20, 30, 40, 50];
 
     return view(
         'welcome',
@@ -31,9 +31,17 @@ Route::get('/', function () {
 });
 
 Route::get('/contacts', function () {
+
     return view('contacts');
 });
 
 Route::get('/produtos', function () {
-    return view('products');
+
+    $busca = request('search');
+
+    return view('products', ['busca' => $busca]);
+});
+
+Route::get('/produtos_teste/{id?}', function ($id = null) {
+    return view('product', ['id' => $id]);
 });
