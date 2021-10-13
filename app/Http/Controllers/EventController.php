@@ -16,7 +16,7 @@ class EventController extends Controller
 
             $events = Event::where(
                 'title', 'like', '%'.$search.'%'
-            );
+            )->get();
 
         } else {
             $events = Event::all();
