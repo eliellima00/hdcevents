@@ -15,6 +15,8 @@ class Event extends Model
 
     protected $dates = ['date'];
 
+    protected $guarded = []; // Indico que tudo que vier pelo post do update, pode ser atualizado, para evitar o erro de Add{token}Fillabe
+
     public function user() {
         return $this->belongsTo('App\Models\User');
     }

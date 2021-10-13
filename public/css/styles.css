@@ -225,6 +225,14 @@ header {
 }
 
 
+/* Edit page */
+
+.img-preview {
+    width: 100px;
+    margin-top: 100px;
+}
+
+
 /* footer */
 
 footer {
