@@ -57,6 +57,9 @@ class EventController extends Controller
             $event->image = $imageName;
         }
 
+        $user = auth()->user() ; //Metodo Auth-> acessa o user(), que é o usuario logado
+        $event->user_id = $user->id ; // Acesso a propriedade id do usuario que esta logado
+
         $event->save();
 
         return redirect('/')->with('msg', 'Evento criado com sucesso!');
